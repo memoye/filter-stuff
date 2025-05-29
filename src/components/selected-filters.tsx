@@ -58,15 +58,21 @@ export function SelectedFilters({
                     {filter.value?.condition?.replace(/_/g, " ")}
                   </span>
                   <span className="text-foreground/80 font-medium">
-                    {Array.isArray(filter.value?.value) ? (
-                      <>
-                        {filter.value?.value.slice(0, 3).join(", ")}{" "}
-                        {filter.value?.value.length > 3 &&
-                          `+${filter.value?.value.length - 3}`}
-                      </>
-                    ) : (
-                      filter.value?.value
-                    )}
+                    <>
+                      {Array.isArray(filter.value?.value) ? (
+                        filter.value?.condition === "is_between" ? (
+                          `${filter.value?.value[0]} - ${filter.value?.value[1]}`
+                        ) : (
+                          <>
+                            {filter.value?.value.slice(0, 3).join(", ")}{" "}
+                            {filter.value?.value.length > 3 &&
+                              `+${filter.value?.value.length - 3}`}
+                          </>
+                        )
+                      ) : (
+                        filter.value?.value
+                      )}
+                    </>
                   </span>
                 </button>
               </DropdownMenuTrigger>
