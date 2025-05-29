@@ -1,7 +1,10 @@
 import { useMemo, useState } from "react";
 import { Filter } from "./components/filter";
 import { SelectedFilters } from "./components/selected-filters";
-import type { SelectedFilter } from "./components/field-parameters";
+import type {
+  FieldCondition,
+  SelectedFilter,
+} from "./components/field-parameters";
 
 export type FieldType = "text" | "select" | "date" | "number";
 
@@ -9,6 +12,7 @@ interface BaseFilter {
   id: number | string;
   label: string;
   value?: SelectedFilter | null;
+  excludeParams?: FieldCondition[];
 }
 
 interface SelecTFilterItem extends BaseFilter {
@@ -66,6 +70,7 @@ const initialFilter: TFilterItem[] = [
     id: 8,
     type: "number",
     label: "Age",
+    excludeParams: ["is_between"],
   },
 ];
 

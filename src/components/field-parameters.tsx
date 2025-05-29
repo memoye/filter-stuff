@@ -56,7 +56,6 @@ interface FieldParametersProps {
 
 export function FieldParameters({
   field,
-  exclude,
   renderSaveButton,
   onApply,
   defaultValue,
@@ -67,10 +66,10 @@ export function FieldParameters({
 
   const conditions = useMemo(() => {
     const _conditions = getFieldConditions(field.type);
-    if (!exclude || exclude?.length < 1)
-      return _conditions.filter((c) => !exclude?.includes(c));
+    if (!field.excludeParams || field.excludeParams?.length < 1)
+      return _conditions.filter((c) => !field.excludeParams?.includes(c));
     else return _conditions;
-  }, [field.type, exclude]);
+  }, [field.type, field.excludeParams]);
 
   function handleConditionChange(condition: FieldCondition) {
     setSelected((prev) => {
