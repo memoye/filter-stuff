@@ -66,10 +66,12 @@ export function FieldParameters({
 
   const conditions = useMemo(() => {
     const _conditions = getFieldConditions(field.type);
-    if (!field.excludeParams || field.excludeParams?.length < 1)
+    if (field.excludeParams && field.excludeParams?.length > 0)
       return _conditions.filter((c) => !field.excludeParams?.includes(c));
     else return _conditions;
   }, [field.type, field.excludeParams]);
+
+  console.log({ label: field.label, conditions });
 
   function handleConditionChange(condition: FieldCondition) {
     setSelected((prev) => {
