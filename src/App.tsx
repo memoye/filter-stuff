@@ -121,11 +121,22 @@ function App() {
         />
       )}
 
-      <div className="max-h-[500px] overflow-y-auto bg-muted p-4 mt-64">
-        <h2 className="text-lg font-semibold">Initial Filter</h2>
-        <pre className="text-xs">
-          <code>{JSON.stringify(initialFilter, null, 2)}</code>
-        </pre>
+      <div className="flex items-start flex-col md:flex-row gap-4 mt-10">
+        <div className="flex-1">
+          <h2 className="text-lg font-semibold">Initial Filter</h2>
+          <pre className="max-h-[500px] overflow-y-auto bg-muted p-4 text-xs">
+            <code>{JSON.stringify(initialFilter, null, 2)}</code>
+          </pre>
+        </div>
+
+        {selectedFilter.length > 0 && (
+          <div className="flex-1">
+            <h2 className="text-lg font-semibold">Selected Filter</h2>
+            <pre className="max-h-[500px] overflow-y-auto bg-muted p-4 text-xs">
+              <code>{JSON.stringify(selectedFilter, null, 2)}</code>
+            </pre>
+          </div>
+        )}
       </div>
     </main>
   );
