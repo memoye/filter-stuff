@@ -71,8 +71,6 @@ export function FieldParameters({
     else return _conditions;
   }, [field.type, field.excludeParams]);
 
-  console.log({ label: field.label, conditions });
-
   function handleConditionChange(condition: FieldCondition) {
     setSelected((prev) => {
       // Reset value when condition changes, use array for is_between
