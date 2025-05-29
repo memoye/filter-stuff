@@ -45,6 +45,17 @@ const initialFilter: TFilterItem[] = [
     label: "Date of Birth",
   },
   {
+    id: 8,
+    type: "number",
+    label: "Age",
+    excludeParams: [
+      "is_between",
+      "is_less_than_or_equal_to",
+      "is_greater_than_or_equal_to",
+      "is_not",
+    ],
+  },
+  {
     id: 4,
     type: "number",
     label: "Amount",
@@ -65,12 +76,6 @@ const initialFilter: TFilterItem[] = [
     type: "select",
     label: "Fav Emoji",
     options: ["😅", "🤙", "🥥", "🎉"],
-  },
-  {
-    id: 8,
-    type: "number",
-    label: "Age",
-    excludeParams: ["is_between"],
   },
 ];
 
@@ -115,6 +120,13 @@ function App() {
           onReset={handleReset}
         />
       )}
+
+      <div className="max-h-[500px] overflow-y-auto bg-muted p-4 mt-64">
+        <h2 className="text-lg font-semibold">Initial Filter</h2>
+        <pre className="text-xs">
+          <code>{JSON.stringify(initialFilter, null, 2)}</code>
+        </pre>
+      </div>
     </main>
   );
 }
