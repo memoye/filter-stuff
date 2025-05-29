@@ -38,7 +38,7 @@ const initialFilter: TFilterItem[] = [
   {
     id: 3,
     type: "date",
-    label: "Created date",
+    label: "Date of Birth",
   },
   {
     id: 4,
@@ -47,18 +47,23 @@ const initialFilter: TFilterItem[] = [
   },
   {
     id: 5,
+    type: "date",
+    label: "Created date",
+  },
+  {
+    id: 6,
     type: "select",
     label: "Gender",
     options: ["Male", "Female", "LGTV"],
   },
   {
-    id: 6,
+    id: 7,
     type: "select",
-    label: "Favorite Emoji",
+    label: "Fav Emoji",
     options: ["😅", "🤙", "🥥", "🎉"],
   },
   {
-    id: 7,
+    id: 8,
     type: "number",
     label: "Age",
   },
